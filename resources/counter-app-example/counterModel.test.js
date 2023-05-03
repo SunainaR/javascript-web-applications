@@ -13,4 +13,11 @@ describe('Counter model', () => {
 
     expect(model.getCounter()).toBe(1);
   });
+
+  it('decerements by 1', () => {
+    const model = new CounterModel();
+    model.decrement();
+
+    expect(model.getCounter()).toBe(-1);
+  });
 })

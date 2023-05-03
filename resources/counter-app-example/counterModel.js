@@ -4,11 +4,19 @@ class CounterModel {
   }
 
   getCounter() {
+    console.log(this.counter);
     return this.counter;
+    
   }
 
   increment() {
+    
     this.counter++;
+  }
+
+  decrement() {
+    
+    this.counter--;
   }
 }
 

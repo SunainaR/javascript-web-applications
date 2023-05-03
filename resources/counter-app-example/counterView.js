@@ -9,6 +9,14 @@ class CounterView {
       this.model.increment();
       this.display();
     });
+
+    const decrementButtonEl = document.querySelector('#decrement-btn');
+    
+    decrementButtonEl.addEventListener('click', () => {
+      // Increment on the model, then refresh the view
+      this.model.decrement();
+      this.display();
+    });
   }
 
   display() {
