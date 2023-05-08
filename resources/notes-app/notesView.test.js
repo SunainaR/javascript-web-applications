@@ -13,7 +13,7 @@ describe("Page View", () => {
   });
 
   
-  it.skip("displays note", () => {
+  it("displays note", () => {
     //Arrange 
     const model = new NotesModel();
     const view = new NotesView(model);
@@ -29,7 +29,7 @@ describe("Page View", () => {
 
   });
 
-  it("adds a note and displays it after button click", () => {
+  it("adds a note and displays it after button click and clears input box", () => {
     //Arrange 
     const model = new NotesModel();
     const view = new NotesView(model);
@@ -43,6 +43,7 @@ describe("Page View", () => {
     //Assert
     expect(document.querySelectorAll(".note").length).toBe(1)
     expect(document.querySelector(".note").innerText).toBe('Meow')
+    expect(inputEl.value).toBe("")
 
   });
 
@@ -62,7 +63,7 @@ describe("Page View", () => {
 
 
     //Assert
-    expect(document.querySelectorAll(".note").length).toBe(3)
+    expect(document.querySelectorAll(".note").length).toBe(2)
 
   });
 

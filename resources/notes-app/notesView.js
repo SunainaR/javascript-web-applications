@@ -6,20 +6,29 @@ class NotesView {
     //listener on button
     this.buttonEl = document.querySelector('#add-note-button')
     this.buttonEl.addEventListener('click', () => {
-      this.displayNotes();
+      this.addNewNote();
+    });
+  }
+
+  addNewNote() {
+    const newNote = document.querySelector('#note-input')
+    this.model.addNote(newNote.value);
+    this.displayNotes();
+    newNote.value = "";
+  }
+
+  #clearAll() {
+    const allNoteEls = document.querySelectorAll('.note')
+    allNoteEls.forEach((noteEl) => {
+      noteEl.remove();
     });
   }
 
   displayNotes() {
-
-    
+    this.#clearAll();
 
     // call the getNotes method on the model
     const notes = this.model.getNotes();
-    const newNote = document.querySelector('#note-input').value;
-    this.model.addNote(newNote);
-
-    console.log(notes)
 
     //for each element of notes array
     notes.forEach((note) => {
