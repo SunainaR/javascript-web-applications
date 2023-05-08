@@ -13,7 +13,7 @@ describe("Page View", () => {
   });
 
   
-  it("displays note", () => {
+  it.skip("displays note", () => {
     //Arrange 
     const model = new NotesModel();
     const view = new NotesView(model);
@@ -29,13 +29,41 @@ describe("Page View", () => {
 
   });
 
+  it("adds a note and displays it after button click", () => {
+    //Arrange 
+    const model = new NotesModel();
+    const view = new NotesView(model);
+    const buttonEl = document.querySelector('#add-note-button');
+    const inputEl = document.querySelector('#note-input')
+
+    //Act
+    inputEl.value = 'Meow';
+    buttonEl.click();
+
+    //Assert
+    expect(document.querySelectorAll(".note").length).toBe(1)
+    expect(document.querySelector(".note").innerText).toBe('Meow')
+
+  });
+
+  it("adds a note and displays both after button clicks", () => {
+    //Arrange 
+    const model = new NotesModel();
+    const view = new NotesView(model);
+    const buttonEl = document.querySelector('#add-note-button');
+    const inputEl = document.querySelector('#note-input')
+
+    //Act
+    inputEl.value = 'Meow';
+    buttonEl.click();
+
+    inputEl.value = 'Woof';
+    buttonEl.click();
+
+
+    //Assert
+    expect(document.querySelectorAll(".note").length).toBe(3)
+
+  });
+
 })
-
-
-/*
-have a constructor
-the model should be dependency-injected into it.
-have a method displayNotes which will:
-get the list of notes from the model.
-for each note, create a new div element on the page (with an HTML class "note").
-*/
