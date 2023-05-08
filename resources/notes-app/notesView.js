@@ -1,5 +1,3 @@
-const NotesModel = require('./notesModel');
-
 class NotesView {
   constructor(model) {
     this.mainContainerEl = document.querySelector('#main-container');
@@ -20,9 +18,9 @@ class NotesView {
       noteEl.innerText = note;
       noteEl.className = 'note';
       //append the main container with the new div element
-      this.mainContainerEl.append(noteEl)
+      this.mainContainerEl.append(noteEl);
      
-    })
+    });
   }
 }
 
