@@ -1,8 +1,9 @@
 class NotesView {
-  constructor(model) {
+  constructor(model, client) {
     this.mainContainerEl = document.querySelector('#main-container');
-    //dependency injection of model into view class
+    //dependency injection of model and client classes into view class
     this.model = model;
+    this.client = client;
     //listener on button
     this.buttonEl = document.querySelector('#add-note-button')
     this.buttonEl.addEventListener('click', () => {
